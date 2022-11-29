@@ -3,10 +3,11 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// Routes
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/notes', require('./routes/notes'))
 
+// connect mongo
 connectToMongo();
 
 app.listen(port, () => {
