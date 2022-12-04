@@ -4,8 +4,7 @@
   "description": "inotebook: your notebook on cloud",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Roshan",
   "license": "ISC",
