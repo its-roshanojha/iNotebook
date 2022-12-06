@@ -1,6 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import noteContext from "../context/notes/noteContext";
 
 const Home = () => {
+  const context = useContext(noteContext);
+  const { notes, setNotes } = context;
   return (
     <div>
       <div className="container my-3">
@@ -27,9 +31,13 @@ const Home = () => {
           ></textarea>
         </div>
       </div>
+
       <div className="container">
-      <h2>Your Notes</h2>
-    </div>
+        <h2>Your Notes</h2>
+        { console.log("notes", notes) }
+      </div>
+
+
     </div>
   );
 };
