@@ -10,7 +10,7 @@ const Home = () => {
       <div className="container my-3">
         <h2>Add a Note</h2>
         <div className="mb-3">
-          <label for="exampleFormControlInput1" className="form-label">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Email address
           </label>
           <input
@@ -21,7 +21,7 @@ const Home = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleFormControlTextarea1" className="form-label">
+          <label htmlFor="exampleFormControlTextarea1" className="form-label">
             Example textarea
           </label>
           <textarea
