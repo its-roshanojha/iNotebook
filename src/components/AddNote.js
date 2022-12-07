@@ -42,7 +42,7 @@ const AddNote = () => {
             rows="3"
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-dark" onClick={handleClick}>submit</button>
+        <button type="submit" className="btn btn-dark" onClick={handleClick}>Add Note</button>
       </div>
     </div>
   );
