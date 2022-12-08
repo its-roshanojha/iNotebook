@@ -6,10 +6,11 @@ const AddNote = () => {
   const context = useContext(noteContext);
   const { addNote } = context;
 
-  const [note, setNote] = useState({title: "", description: "", tag: "default"})
+  const [note, setNote] = useState({title: "", description: "", tag: ""})
   const handleClick =(e)=>{
     e.preventDefault(); //page doesn't get reload
     addNote(note.title, note.description, note.tag);
+    setNote({title:"", description: "", tag:""})
     //console.log("note addded", note)
   }
 
@@ -28,6 +29,8 @@ const AddNote = () => {
             id="title"
             name="title" 
             onChange={onChange}
+            value={note.title}
+            minLength={5} required
             placeholder="Enter the Title"
           />
         </div>
@@ -39,6 +42,8 @@ const AddNote = () => {
             id="tag"
             name="tag" 
             onChange={onChange}
+            value={note.tag}
+            minLength={5} required
             placeholder="Enter the tag"
           />
         </div>
@@ -51,10 +56,12 @@ const AddNote = () => {
             id="description"
             name="description"
             onChange={onChange}
+            value={note.description}
+            minLength={5} required
             rows="3"
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-dark" onClick={handleClick}>Add Note</button>
+        <button disabled={note.title.length<5 || note.description.length<5}type="submit" className="btn btn-dark" onClick={handleClick}>Add Note</button>
       </div>
     </div>
   );
