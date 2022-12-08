@@ -31,6 +31,17 @@ const AddNote = () => {
           />
         </div>
         <div className="mb-3">
+          <label htmlFor="title" className="form-label"> Tag </label>
+          <input
+            type="text"
+            className="form-control"
+            id="tag"
+            name="tag" 
+            onChange={onChange}
+            placeholder="Enter the tag"
+          />
+        </div>
+        <div className="mb-3">
           <label htmlFor="" className="form-label">
             Description
           </label>
