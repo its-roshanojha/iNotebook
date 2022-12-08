@@ -10,6 +10,7 @@ const AddNote = () => {
   const handleClick =(e)=>{
     e.preventDefault(); //page doesn't get reload
     addNote(note.title, note.description, note.tag);
+    //console.log("note addded", note)
   }
 
   const onChange =(e)=>{

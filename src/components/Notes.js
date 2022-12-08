@@ -1,29 +1,29 @@
-import React, { useContext, useState } from "react";
-import { useEffect, useRef } from "react";
+import React, {useEffect, useRef, useContext, useState } from "react";
 import noteContext from "../context/notes/noteContext";
 import AddNote from "./AddNote";
 import Noteitem from "./Noteitem";
 
 const Notes = () => {
   const context = useContext(noteContext);
-  const { notes, getNotes } = context;
+  const { notes, getNotes, editNote} = context;
   useEffect(() => {
     getNotes();
     // eslint-disable-next-line
   }, []);
-  const [note, setNote] = useState({etitle: "", edescription: "", etag: ""})
 
+  const ref = useRef(null);
+  const refClose = useRef(null);
 
-  const ref = useRef();
+  const [note, setNote] = useState({id:"", etitle: "", edescription: "", etag: ""})
+
   const updateNote = (currentNote) => {
     ref.current.click();
-    setNote({etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag})
+    setNote({id:currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag})
   };
   const handleClick =(e)=>{
-    console.log('updating note...', note)
-    e.preventDefault(); //page doesn't get reload
-    // addNote(note.title, note.description, note.tag);
-
+    //console.log('updating note...', note);
+    editNote(note.id, note.etitle, note.edescription, note.etag)
+    refClose.current.click();
   }
 
   const onChange =(e)=>{
@@ -111,7 +111,7 @@ const Notes = () => {
 
             </div>
             <div className="modal-footer">
-              <button
+              <button ref={refClose}
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
