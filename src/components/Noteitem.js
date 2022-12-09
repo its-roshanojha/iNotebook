@@ -13,7 +13,7 @@ const { deleteNote } = context;
           <p className="card-text">
           {note.description}
           </p>
-          <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id)}}></i>
+          <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id); props.showAlert("deleted successfully","success")}}></i>
           <i className="fa-solid fa-file-pen mx-2" onClick={()=>{updateNote(note)}}></i>
         </div>
       </div>
