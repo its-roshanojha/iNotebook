@@ -17,6 +17,7 @@ router.post(
     body("password").isLength({ min: 5 }),
   ],
   async (req, res) => {
+    var success = false;
     // If there are errors, return that req and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -29,7 +30,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ error: "sorry a user with this email already exists" });
+          .json({ success, error: "sorry a user with this email already exists" });
       }
       // using bcrypt
       const salt = await bcrypt.genSalt(10);
@@ -51,6 +52,8 @@ router.post(
       }
       const JWT_SECRET = "helloiamsecret"
       const authToken = jwt.sign(data, JWT_SECRET);
+
+      //res.json(use)
       success = true;
       // console.log(jwtData);
       res.json({success, authToken});
